@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Nodo {
 	final int N = 5;
@@ -36,7 +37,9 @@ public class Nodo {
 		for (int j = 0; j < solucion.length; j++) {
 			if (noEsta(n.solucion,nk-1,j)){
 				nHijos += 1;
-				Nodo nuevo = n.clone();
+//				Nodo nuevo = n.clone();
+				Nodo nuevo = new Nodo();
+//				Arrays.copyOf(n, nuevo);
 				nuevo.solucion[nk] = j;
 				quitar(nuevo.matriz, nk ,j);
 				nuevo.nivel += 1;
