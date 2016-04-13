@@ -5,10 +5,10 @@ import java.io.IOException;
 
 public class Main {
 
-//	ArrayList<Nodo> nodos = new ArrayList();
 	private int cota;
-	private int[] solucion;
+	private int[] solucion;	
 	
+//	ArrayList<Nodo> nodos = new ArrayList();
 	public static void main(String[] args) throws IOException {
 //		if(args[0] == null){
 //			throw new IOException("Es necesario un fichero de entrada!!!");
