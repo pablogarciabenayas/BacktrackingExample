@@ -12,6 +12,7 @@ public class Main {
 //		}
 		
 		try {
+			//7 gsfghfdh
 //			BufferedReader reader = new BufferedReader(new FileReader(args[0]));
 			BufferedReader reader = new BufferedReader(new FileReader("/home/pablo/git/daa_pra_ryp/practica-daa-ryp/src/entrada"));
 			String[] firstParamLine = reader.readLine().split("\\s+");
@@ -37,8 +38,5 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 	}
-
 }
