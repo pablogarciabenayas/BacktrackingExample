@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Main {
 
-	private int cota;
+	private int cota=0;
 	private int[] solucion;	
 	
 //	ArrayList<Nodo> nodos = new ArrayList();
@@ -38,9 +38,17 @@ public class Main {
 			reader.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		}	
+	}
+	
+	public int calcularCota(int N, int[] pedido, int[][] matriz){
+		int [] beneficio = new int[N];
+		for(int i = 0; i<pedido.length;i++){
+			beneficio[i] = matriz[i][pedido[i]];
 		}
-		
-		
-		
+		for(int i = 0; i<beneficio.length;i++){ 
+			cota += beneficio[i];
+		}
+		return cota;
 	}
 }
