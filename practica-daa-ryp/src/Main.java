@@ -41,7 +41,7 @@ public class Main {
 		}	
 	}
 	
-	public int calcularCota(int N, int[] pedido, int[][] matriz){
+	public int solucion_incial(int N, int[] pedido, int[][] matriz){
 		int [] beneficio = new int[N];
 		for(int i = 0; i<pedido.length;i++){
 			beneficio[i] = matriz[i][pedido[i]];
