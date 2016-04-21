@@ -1,4 +1,3 @@
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -86,6 +85,7 @@ public class Main {
 	}
 	public static ArrayList<Nodo> getComplecciones (Nodo padre, int n, int m){
 		ArrayList<Nodo> hijos = new ArrayList<Nodo> ();
+		return hijos;
 		
 	}
 }
