@@ -60,8 +60,8 @@ public class BakeryTaskProcessor {
 		for (int i = 0; i < o.length; i++) {
 			d[i] = o[i];
 		}
-		
 	}
+
 		
 	public String getFinalResult() {
 		String res = "";
@@ -96,9 +96,7 @@ public class BakeryTaskProcessor {
 			for (int j = 1; j < r+1; j++) {
 				for (int k = 1; k < c+1 ; k++) {
 					currentParams[j][k] = fatherParams[j][k];
-					
 				}
-				
 			}
 			
 			for (int j = 0; j<r+1; j++) {
@@ -109,7 +107,7 @@ public class BakeryTaskProcessor {
 			copyResult(father.getResult(), node.getResult());
 			node.setLevel(father.getLevel()+1);
 			
-			if(esFactible(node.getResult(),i,node.getLevel()-1)){
+			if(isFeasible(node.getResult(),i,node.getLevel()-1)){
 				int[] newNode = node.getResult();
 				newNode[node.getLevel()]=i;
 				node.setResult(newNode);
@@ -120,7 +118,7 @@ public class BakeryTaskProcessor {
 		return childs;
 	}
 
-	private boolean esFactible(int[] result, int intento, int hasta) {
+	private boolean isFeasible(int[] result, int intento, int hasta) {
 	
 		for (int i = 1; i < result.length; i++) {
 			if(result[i] == intento){
