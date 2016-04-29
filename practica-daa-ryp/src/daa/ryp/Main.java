@@ -17,8 +17,12 @@ public class Main {
 						"El fichero de salida ya existe, introduce otro nombre para crear el fichero de salida");
 			}
 		}
+		
+		if(args.length == 0){
+			throw new IOException("Falta parametro: fichero de entrada");
+		}
 
-		try {
+		try {	
 			fileInput = new FileUtils(args[0]);
 			System.out
 					.println("El fichero de entrada contiente la siguiente matriz: ");
@@ -29,9 +33,9 @@ public class Main {
 					.println("---------------------------------------------------------");
 
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Es necesario un fichero de entrada valido!");
-			e.printStackTrace();
-		}
+			
+			
+		} 
 
 		int[] order = fileInput.getOrder();
 		int[][] params = fileInput.getMatrixParams();
