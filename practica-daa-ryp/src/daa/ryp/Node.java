@@ -29,10 +29,16 @@ public class Node implements Comparable {
 			profit = profit + nodeMatrixParam[result[i]][order[i]];
 		}
 
+//		for (int i = level + 1; i <= rows; i++) {
+//			int bestBaker = getBestBaker(rows, order[i], nodeMatrixParam);
+//			profit = profit + nodeMatrixParam[bestBaker][order[i]];
+//		}
+		
 		for (int i = level + 1; i <= rows; i++) {
-			int bestBaker = getBestBaker(rows, order[i], nodeMatrixParam);
-			profit = profit + nodeMatrixParam[bestBaker][order[i]];
+//			int bestBaker = getBestBaker(rows, order[i], nodeMatrixParam);
+			profit = profit + nodeMatrixParam[i][order[i]];
 		}
+		
 		this.flag = profit;
 
 	}
