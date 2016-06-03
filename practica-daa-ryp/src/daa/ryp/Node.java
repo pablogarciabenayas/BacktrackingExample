@@ -28,14 +28,19 @@ public class Node implements Comparable {
 		for (int i = 1; i <= level; i++) {
 			profit = profit + nodeMatrixParam[result[i]][order[i]];
 		}
-
+//		Quitar para r
 //		for (int i = level + 1; i <= rows; i++) {
 //			int bestBaker = getBestBaker(rows, order[i], nodeMatrixParam);
 //			profit = profit + nodeMatrixParam[bestBaker][order[i]];
 //		}
 		
-		for (int i = level + 1; i <= rows; i++) {
+//		for (int i = level + 1; i <= rows; i++) {
 //			int bestBaker = getBestBaker(rows, order[i], nodeMatrixParam);
+//			profit = profit + nodeMatrixParam[i][order[i]];
+//		}
+		
+		
+		for (int i = level + 1; i <= rows; i++) {
 			profit = profit + nodeMatrixParam[i][order[i]];
 		}
 		
@@ -43,18 +48,18 @@ public class Node implements Comparable {
 
 	}
 
-	private int getBestBaker(int r, int type, int[][] params) {
-
-		int best = 1;
-
-		for (int i = 1; i <= r; i++) {
-			if (params[i][type] > params[best][type]) {
-				best = i;
-			}
-		}
-
-		return best;
-	}
+//	private int getBestBaker(int r, int type, int[][] params) {
+//
+//		int best = 1;
+//
+//		for (int i = 1; i <= r; i++) {
+//			if (params[i][type] > params[best][type]) {
+//				best = i;
+//			}
+//		}
+//
+//		return best;
+//	}
 
 	public int getLevel() {
 		return level;
