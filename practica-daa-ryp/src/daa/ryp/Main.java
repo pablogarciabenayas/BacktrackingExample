@@ -17,25 +17,22 @@ public class Main {
 						"El fichero de salida ya existe, introduce otro nombre para crear el fichero de salida");
 			}
 		}
-		
-		if(args.length == 0){
+
+		if (args.length == 0) {
 			throw new IOException("Falta parametro: fichero de entrada");
 		}
 
-		try {	
+		try {
 			fileInput = new FileUtils(args[0]);
-			System.out
-					.println("El fichero de entrada contiente la siguiente matriz: ");
+			System.out.println("El fichero de entrada contiente la siguiente matriz: ");
 			System.out.println(fileInput.printParams());
 			System.out.println("y el siguiente vector de pedido:");
 			System.out.println("\t" + fileInput.printOrder());
-			System.out
-					.println("---------------------------------------------------------");
+			System.out.println("---------------------------------------------------------");
 
 		} catch (ArrayIndexOutOfBoundsException e) {
-			
-			
-		} 
+
+		}
 
 		int[] order = fileInput.getOrder();
 		int[][] params = fileInput.getMatrixParams();
@@ -43,29 +40,29 @@ public class Main {
 		int columns = fileInput.getColumns();
 
 		long startTime = System.nanoTime();
+		BakeryTaskProcessor processor = null;
+		for (int i = 0; i < 10000; i++) {
+			processor = new BakeryTaskProcessor(order, params, rows, columns);
+			processor.process();
+		}
 
-		BakeryTaskProcessor processor = new BakeryTaskProcessor(order, params,
-				rows, columns);
-		processor.process();
 		long executionTime = System.nanoTime() - startTime;
 
-		System.out.println("Tiempo de ejecución: "
-				+ TimeUnit.MILLISECONDS.convert(executionTime,
-						TimeUnit.NANOSECONDS) + " milisegundos");
-		System.out
-				.println("---------------------------------------------------------");
+		System.out.println("Tiempo de ejecución: " + TimeUnit.MILLISECONDS.convert(executionTime, TimeUnit.NANOSECONDS)
+				+ " milisegundos");
+		System.out.println("---------------------------------------------------------");
 
 		try {
 			PrintWriter writer = new PrintWriter(args[1], "UTF-8");
 			writer.println(processor.getFinalResult());
 			writer.println(processor.getFinalProfit());
 			writer.close();
-			
-			System.out.println("Los resultados se han almacenado en un fichero con el siguiente nombre:" );
+
+			System.out.println("Los resultados se han almacenado en un fichero con el siguiente nombre:");
 			System.out.println(args[1]);
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out
-					.println("\n\nNo ha introducido ningun nombre para el fichero de salida, se imprimira el resultado por pantalla.\n");
+			System.out.println(
+					"\n\nNo ha introducido ningun nombre para el fichero de salida, se imprimira el resultado por pantalla.\n");
 			System.out.println(processor.getFinalResult());
 			System.out.println(processor.getFinalProfit());
 		}
